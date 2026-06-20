@@ -5,6 +5,7 @@ runs:
 
   steps:
     - name: "Install CrossLang Package "
+      shell: bash
       run: |
         if command -v crosslang >/dev/null 2>&1; then
           echo "CrossLang Already Installed"
