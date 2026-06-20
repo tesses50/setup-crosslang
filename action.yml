@@ -13,28 +13,33 @@ runs:
           case `uname -m` in
             x86_64)
               wget -O /tmp/crosslang.tar.gz https://redirect.tesses.net/cl-linux-amd64
-              tar xzf /tmp/crosslang.tar.gz -C /usr/local
-              crosslang update-shell
+              tar xzf /tmp/crosslang.tar.gz -C "$(pwd)/.setup-crosslang/crosslang"
+              "$(pwd)/.setup-crosslang/crosslang/bin/crosslang" update-shell
+              "$(pwd)/.setup-crosslang/crosslang/bin" >> $GITHUB_PATH
               ;;
             aarch64)
               wget -O /tmp/crosslang.tar.gz https://redirect.tesses.net/cl-linux-arm64
-              tar xzf /tmp/crosslang.tar.gz -C /usr/local
-              crosslang update-shell
+              tar xzf /tmp/crosslang.tar.gz -C "$(pwd)/.setup-crosslang/crosslang"
+              "$(pwd)/.setup-crosslang/crosslang/bin/crosslang" update-shell
+              "$(pwd)/.setup-crosslang/crosslang/bin" >> $GITHUB_PATH
               ;;
             riscv64)
               wget -O /tmp/crosslang.tar.gz https://redirect.tesses.net/cl-linux-riscv64
-              tar xzf /tmp/crosslang.tar.gz -C /usr/local
-              crosslang update-shell
+              tar xzf /tmp/crosslang.tar.gz -C "$(pwd)/.setup-crosslang/crosslang"
+              "$(pwd)/.setup-crosslang/crosslang/bin/crosslang" update-shell
+              "$(pwd)/.setup-crosslang/crosslang/bin" >> $GITHUB_PATH
               ;;
             i*86)
               wget -O /tmp/crosslang.tar.gz https://redirect.tesses.net/cl-linux-i386
-              tar xzf /tmp/crosslang.tar.gz -C /usr/local
-              crosslang update-shell
+              tar xzf /tmp/crosslang.tar.gz -C "$(pwd)/.setup-crosslang/crosslang"
+              "$(pwd)/.setup-crosslang/crosslang/bin/crosslang" update-shell
+              "$(pwd)/.setup-crosslang/crosslang/bin" >> $GITHUB_PATH
               ;;
             ppc)
               wget -O /tmp/crosslang.tar.gz https://redirect.tesses.net/cl-linux-powerpc
-              tar xzf /tmp/crosslang.tar.gz -C /usr/local
-              crosslang update-shell
+              tar xzf /tmp/crosslang.tar.gz -C "$(pwd)/.setup-crosslang/crosslang"
+              "$(pwd)/.setup-crosslang/crosslang/bin/crosslang" update-shell
+              "$(pwd)/.setup-crosslang/crosslang/bin" >> $GITHUB_PATH
               ;;
             *)
               echo "Unsupported architecture for crosslang, Sorry :("
