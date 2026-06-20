@@ -1,4 +1,4 @@
-runs: Install CrossLang
+name: Install CrossLang
 
 runs:
   using: "composite"
