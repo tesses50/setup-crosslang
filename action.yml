@@ -1,0 +1,42 @@
+runs: Install CrossLang
+
+runs:
+  using: "composite"
+
+  steps:
+    run: |
+      if command -v crosslang >/dev/null 2>&1; then
+        echo "CrossLang Already Installed"
+      else
+        case `uname -m` in
+          x86_64)
+            wget -O /tmp/crosslang.tar.gz https://redirect.tesses.net/cl-linux-amd64
+            tar xvf /tmp/crosslang.tar.gz -C /usr/local
+            crosslang update-shell
+            ;;
+          aarch64)
+            wget -O /tmp/crosslang.tar.gz https://redirect.tesses.net/cl-linux-arm64
+            tar xvf /tmp/crosslang.tar.gz -C /usr/local
+            crosslang update-shell
+            ;;
+          riscv64)
+            wget -O /tmp/crosslang.tar.gz https://redirect.tesses.net/cl-linux-riscv64
+            tar xvf /tmp/crosslang.tar.gz -C /usr/local
+            crosslang update-shell
+            ;;
+          i*86)
+            wget -O /tmp/crosslang.tar.gz https://redirect.tesses.net/cl-linux-i386
+            tar xvf /tmp/crosslang.tar.gz -C /usr/local
+            crosslang update-shell
+            ;;
+          ppc)
+            wget -O /tmp/crosslang.tar.gz https://redirect.tesses.net/cl-linux-powerpc
+            tar xvf /tmp/crosslang.tar.gz -C /usr/local
+            crosslang update-shell
+            ;;
+          *)
+            echo "Unsupported architecture for crosslang, Sorry :("
+            exit 1
+            ;;
+          esac
+        fi
